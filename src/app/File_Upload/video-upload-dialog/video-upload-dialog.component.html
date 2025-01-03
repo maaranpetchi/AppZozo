@@ -1,0 +1,28 @@
+<!-- <h2 mat-dialog-title>
+  <i class="fa fa-file-movie-o"></i>
+  <span class="uploadVideo">Upload Your Video</span>
+</h2>
+<mat-dialog-content class="mat-typography">
+  <div class="file-upload-box text-center">
+    <input type="file" (change)="onFileSelected($event)" id="fileInput" hidden #fileInput />
+    <label for="fileInput" class="upload-area" *ngIf="!selectedFile">
+      <p>Click here or drag and drop a file</p>
+      <i class="material-icons">file_upload</i>
+    </label>
+    <div class="selected-file-info" *ngIf="selectedFile" style="display: flex; justify-content: space-between; align-items: center;">
+      <p><i class="fa fa-file"></i> {{ selectedFile.name}}</p>
+      <button (click)="deleteFile()" style="border: none; background: none; cursor: pointer;">
+        <i class="fa fa-trash"></i> 
+      </button>
+    </div>
+    
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions style="justify-content: space-between;">
+  <button class="btn btn-danger" mat-dialog-close>
+    <i class="fa fa-remove" style="color:rgb(255, 255, 255)"></i><span>Cancel</span>
+  </button>
+  <button class="btn btn-success" [mat-dialog-close]="true" cdkFocusInitial (click)="uploadFile()">
+    <i class="fa fa-upload"></i><span>Add MetaDatato Upload</span>
+  </button>
+</mat-dialog-actions> -->
