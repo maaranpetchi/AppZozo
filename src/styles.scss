@@ -1,5 +1,68 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* Core Grid CSS */
+@import 'ag-grid-community/styles/ag-grid.css';
+/* Quartz Theme Specific CSS */
+@import 'ag-grid-community/styles/ag-theme-quartz.css';
+
+@import url('https://fonts.cdnfonts.com/css/futura-rounded');
+span.ag-cell-value,
+.ag-group-value {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: "Playfair Display", serif !important;
+//  font-family: 'Futura Rounded', sans-serif;
+  font-weight: bolder;
+  font-size: small;
+}
+
+.ag-theme-quartz {
+  --ag-header-foreground-color: rgb(0, 77, 109);
+  --ag-header-background-color: rgb(236, 246, 250);
+  --ag-pagination-panel-background-color: rgb(236, 246, 250); // Replace with your desired blue color
+
+}
+
+
+
+.ag-paging-panel {
+  border-top: 1px solid;
+  border-top-color: var(--ag-border-color);
+  color: rgb(0, 77, 109);
+  height: var(--ag-header-height);
+  background-color: rgb(236, 246, 250);
+
+}
+
+
+
+body {
+  margin: 0;
+  font-family: "Playfair Display", serif !important;
+  // font-family: 'Futura Rounded', sans-serif;
+  font-optical-sizing: auto;
+  // font-weight: 500;
+  font-style: normal;
+  min-height: 100vh !important;
+  background-image: linear-gradient(to right top, #f17121, #f27928, #f3822f, #f48936, #f5913e) !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+label,
+button,
+select,
+textarea {
+  font-family: "Playfair Display", serif;
+  // font-optical-sizing: auto;
+  // font-weight: 500;
+  // font-family: 'Futura Rounded', sans-serif;
+  font-style: normal
+}

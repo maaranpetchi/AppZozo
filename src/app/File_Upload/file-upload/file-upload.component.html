@@ -1,12 +1,79 @@
-<div class="container mt-5">
-  <div class="d-flex justify-content-between align-items-center">
-    <h2 id="libraryTitle">Video Library</h2>
-    <button 
-      (click)="openUploadDialog()"
-      class="btn btn-primary"
-      aria-describedby="libraryTitle">
-      <span> <i class="fa fa-plus" style="color:white"></i></span> Upload New Video
-      <span class="visually-hidden">Opens upload dialog</span>
-    </button>
-  </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #777;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .custom-backdrop {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
+        }
+
+        #libraryTitle {
+            color: white;
+        }
+
+        .container {
+            width: 100%;
+            padding: 20px;
+        }
+
+        .btn-primary {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        ag-grid-angular {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="title-wrapper">
+            <img src="../../../assets/icons8-movie.gif" alt="Video icon" class="title-gif">
+            <h2 id="libraryTitle" class="animated-title" style="color:black; margin: 0;">Video Library</h2>
+        </div>
+        <button (click)="openUploadDialog()" matTooltip="Upload New Video!" class="btn btn-primary" aria-describedby="libraryTitle">
+            <span><i class="fa fa-plus" style="color:white"></i></span>
+            Upload New Video
+            <span class="visually-hidden">Opens upload dialog</span>
+        </button>
+    </div>
+        <div class="row">
+            <div class="col">
+                <ag-grid-angular 
+                    [paginationAutoPageSize]="false" 
+                    style="width: 100%; height: 80vh;" 
+                    [context]="context"
+                    [columnDefs]="columnDefs" 
+                    [defaultColDef]="defaultColDef" 
+                    [suppressRowClickSelection]="true"
+                    [rowSelection]="rowSelection" 
+                    [rowData]="rowData" 
+                    [pagination]="true" 
+                    [class]="themeClass"
+                    (gridReady)="onGridReady($event)" 
+                    (cellValueChanged)="handleCellValueChanged($event)"
+                    [paginationPageSize]="50" 
+                    floatingFilter="true">
+                </ag-grid-angular>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

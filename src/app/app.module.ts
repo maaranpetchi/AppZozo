@@ -14,11 +14,17 @@ import { VideoUploadDialogComponent } from './File_Upload/video-upload-dialog/vi
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
+import { AgGridModule } from 'ag-grid-angular';
+import { SpinnerComponent } from './Spinner/spinner/spinner.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
 @NgModule({
   declarations: [
     AppComponent,
     VideoMetaDataManagementComponent,
-    VideoUploadDialogComponent
+    VideoUploadDialogComponent,
+    FileUploadComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,9 @@ import { CommonModule } from '@angular/common';
     BrowserAnimationsModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    AgGridModule,
+    MatTooltipModule
 
   ],
   providers: [],

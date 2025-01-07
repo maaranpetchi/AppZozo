@@ -8,31 +8,29 @@
 </head>
 
 <body>
-    <div class="container mt-5">
-        <form>
-            <div class="d-flex align-items-center justify-content-center p-3 border-bottom">
-                <!-- <div class="d-flex align-items-center">
-                    <i class="fa fa-film" aria-hidden="true"
-                        style="font-size: 1.5rem; color: #007bff; padding-right: 15px;"></i>
+    <div class="container">
+        <form class="Form">
+            <div class="row">
 
-                    <h4 class="m-0">Video Metadata Management</h4>
-                </div> -->
+                <div class="col  text-start"> <a (click)="onCancel()" class="angled-button" style="cursor:pointer">
+                    <i class="fa fa-home" style="color:white"></i>
+                    Back To Home
+                    </a>
+                </div>
+            </div>
+            <div class="d-flex align-items-center justify-content-center p-3 border-bottom">
+
 
                 <div class="row">
                     <div class="col d-flex  text-center">
                         <i class="fa fa-film" aria-hidden="true"
-                        style="font-size: 1.5rem; color: #007bff; padding-right: 15px;"></i>   <h1 class="m-0">Video Management System</h1>
+                            style="font-size: 1.5rem; color: #007bff; padding-right: 15px;"></i>
+                        <h1 class="m-0" style="font-family: 'Futura Rounded', sans-serif;">Video Management System</h1>
+
                     </div>
                 </div>
-        
-                <!-- <button class="btn btn-success">
-                    <i class="fa fa-save" style="color:white;padding:11px"></i>Save Metadata
-                </button> -->
-
-
             </div>
-
-            <div class="form-group">
+            <div class="form-group" *ngIf="columnState != 'UpdatePage'">
                 <h2 mat-dialog-title>
                     <i class="fa fa-file-movie-o"></i>
                     <span class="uploadVideo">Upload Your Video</span>
@@ -47,129 +45,154 @@
                         <div class="selected-file-info" *ngIf="selectedFile"
                             style="display: flex; justify-content: space-between; align-items: center;">
                             <p><i class="fa fa-file"></i> {{ selectedFile.name}}</p>
-                            <button (click)="deleteFile()" style="border: none; background: none; cursor: pointer;">
+                            <button (click)="deleteFile()" style="border: none; background: none; cursor: pointer;" matTooltip="delete">
                                 <i class="fa fa-trash"></i>
                             </button>
                         </div>
-
                     </div>
                 </mat-dialog-content>
-                <!-- <mat-dialog-actions style="justify-content: space-between;">
-                    <button class="btn btn-danger" mat-dialog-close>
-                        <i class="fa fa-remove" style="color:rgb(255, 255, 255)"></i><span>Cancel</span>
-                    </button>
-                    <button class="btn btn-success" [mat-dialog-close]="true" cdkFocusInitial (click)="uploadFile()">
-                        <i class="fa fa-upload"></i><span>Add MetaDatato Upload</span>
-                    </button>
-                </mat-dialog-actions> -->
             </div>
-
             <div class="form-group">
-                <label for="title"><i class="fa fa-text"></i>Title</label>
+                <label for="title"><i class="fa fa-text-width" style="color: #007bff;"></i>Title</label>
                 <input type="text" id="title" class="form-control" placeholder="Enter video title"
                     [(ngModel)]="video.title" name="title">
             </div>
-
             <!-- Original Title -->
             <div class="form-group">
-                <label for="originalTitle"><i class="fa fa-text"></i>Original Title</label>
+                <label for="originalTitle"><i class="fa fa-text-width" style="color: #007bff;"></i>Original Title</label>
                 <input type="text" id="originalTitle" class="form-control" placeholder="Enter original title"
                     [(ngModel)]="video.originalTitle" name="originalTitle">
             </div>
-
             <!-- Description -->
             <div class="form-group">
-                <label for="description">Description</label>
+                <label for="description"> <i  class="fa fa-comment" style="color: #007bff;"></i> Description</label>
                 <textarea id="description" class="form-control" placeholder="Enter video description" rows="3"
                     [(ngModel)]="video.description" name="description"></textarea>
             </div>
-
             <!-- Category -->
             <div class="form-group">
                 <i class="fa fa-tag"></i><label for="category">Category</label>
                 <select id="category" class="form-control" [(ngModel)]="video.category" name="category">
-                    <option value="" disabled>Select Category <i class="fas fa-angle-down"></i></option>
-
+                    <option value="" disabled>Select Category <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </option>
                     <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
                 </select>
             </div>
-
             <!-- Genre -->
             <div class="form-group">
-                <label for="genre">Genre</label>
+                <label for="genre"><i  class=" fa fa-star" style="color: #007bff;"></i>Genre </label>
                 <select id="genre" class="form-control" [(ngModel)]="video.genre" name="genre">
+                    <option value="" disabled>Select Genre <i class="fa fa-angle-down" aria-hidden="true"></i>
+
                     <option *ngFor="let gen of genres" [value]="gen">{{ gen }}</option>
                 </select>
             </div>
-
             <!-- Release Year -->
             <div class="form-group">
-                <label for="releaseYear">Release Year</label>
+                <label for="releaseYear"> <i class="fa fa-calendar"  style="color: #007bff;"></i>Release Year</label>
                 <input type="number" id="releaseYear" class="form-control" placeholder="Enter release year"
                     [(ngModel)]="video.releaseYear" name="releaseYear">
             </div>
-
             <!-- Duration -->
             <div class="form-group">
-                <label for="duration">Duration</label>
-                <input type="time" id="duration" class="form-control" placeholder="HH:MM:SS"
-                    [(ngModel)]="video.duration" name="duration">
+                <label for="duration"><i  class="fa fa-video-camera" style="color: #007bff;"></i> Duration(HH/MM/SS)</label>
+                <input type="text" id="duration" class="form-control" placeholder="HH:MM:SS"
+                    [(ngModel)]="video.duration" name="duration" readonly>
             </div>
-
             <!-- Language -->
             <div class="form-group">
-                <label for="language">Language</label>
+                <label for="language"><i  class="fa fa-language" style="color: #007bff;"></i> 	Language</label>
                 <select id="language" class="form-control" [(ngModel)]="video.language" name="language">
+                    <option value="" disabled>Select Language <i class="fa fa-angle-down" aria-hidden="true"></i>
+
                     <option *ngFor="let lang of languages" [value]="lang">{{ lang }}</option>
                 </select>
             </div>
-
             <!-- Content Rating -->
             <div class="form-group">
-                <label for="contentRating">Content Rating</label>
+                <label for="contentRating"><i  class=" fa fa-star" style="color: #007bff;"></i>Content Rating</label>
                 <select id="contentRating" class="form-control" [(ngModel)]="video.contentRating" name="contentRating">
+                    <option value="" disabled>Select Rating <i class="fa fa-angle-down" aria-hidden="true"></i>
+
                     <option *ngFor="let rating of ratings" [value]="rating">{{ rating }}</option>
                 </select>
             </div>
-
             <!-- Trailer URL -->
             <div class="form-group">
-                <label for="trailerUrl">Trailer URL</label>
+                <label for="trailerUrl"> <i  class="fa fa-video-camera" style="color: #007bff;"></i> 	
+                    Trailer URL</label>
                 <input type="url" id="trailerUrl" class="form-control" placeholder="Enter trailer URL"
                     [(ngModel)]="video.trailerUrl" name="trailerUrl">
             </div>
-
-            <!-- Tags -->
             <div class="form-group">
-                <label for="tags">Tags</label>
-                <input type="text" id="tags" class="form-control" placeholder="Add a tag" [(ngModel)]="video.tags"
-                    name="tags">
-            </div>
+                <label for="tags">
+                    <i class="fa fa-tag"></i> Tags
+                </label>
+                
+                <!-- Input group with button -->
+                <div class="input-group mb-2">
+                    <input type="text" 
+                           id="tags" 
+                           class="form-control" 
+                           placeholder="Add a tag" 
+                           [(ngModel)]="newTag"
+                           (keyup)="onTagKeyup($event)"
+                           name="tagInput">
+                    <div class="input-group-append tagButton">
+                       
+                        <button class="btn btn-primary" type="button" matTooltip="Add Cast!" (click)="addTag()">+</button>
 
+                        
+                    </div>
+                </div>
+            
+                <!-- Tags display -->
+                <div class="d-flex flex-wrap gap-2">
+                    <span *ngFor="let tag of video.tags; let i = index" 
+                          class="badge bg-primary d-flex align-items-center gap-2">
+                        {{ tag }}
+                        <i class="fa fa-times cursor-pointer" 
+                           (click)="removeTag(i)"
+                           style="cursor: pointer;color:white"></i>
+                    </span>
+                </div>
+            </div>
             <!-- Cast -->
             <div class="form-group">
-                <label for="cast">Cast</label>
+                <label for="cast"><i class="fa fa-user"></i>Cast</label>
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Name" [(ngModel)]="newCast.name"
-                        name="castName">
+                        name="castName" style="margin-right: 23px;">
                     <input type="text" class="form-control" placeholder="Role" [(ngModel)]="newCast.role"
                         name="castRole">
                     <div class="input-group-append">
-                        <button class="btn btn-primary" type="button" (click)="addCast()">+</button>
+                        <button class="btn btn-primary" type="button" matTooltip="Add Cast!" (click)="addCast()">+</button>
                     </div>
                 </div>
-                <ul class="list-group mt-2">
-                    <li *ngFor="let cast of video.cast" class="list-group-item">
-                        {{ cast.name }} - {{ cast.role }}
+                <ul class="list-group mt-2" *ngIf="columnState == 'UpdatePage' || this.addCastMember">
+                    <li *ngFor="let cast of video.cast; let i = index"
+                        class="list-group-item d-flex justify-content-between">
+                        <span>{{ cast.name }} - {{ cast.role }}</span>
+                        <button class="btn btn-danger btn-sm" matTooltip="Delete Cast!" (click)="deleteCast(i)">
+                            <i class="fa fa-trash" style="color:white;height:18px;"></i>
+                        </button>
                     </li>
                 </ul>
             </div>
-
-            <!-- Submit Button -->
-            <button type="submit" (click)="onSubmit()" class="btn btn-primary btn-block">Submit</button>
+            <div class="d-flex justify-content-between mt-3">
+                <button type="button" 
+                        class="btn btn-secondary" 
+                        (click)="onCancel()">
+                    Cancel
+                </button>
+                <button type="submit" 
+                        class="btn btn-success" 
+                        (click)="onSubmit()">
+                    Submit
+                </button>
+            </div>
         </form>
     </div>
-
 </body>
 
 </html>

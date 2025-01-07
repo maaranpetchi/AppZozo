@@ -1,53 +1,112 @@
-i{
+i {
     color: #007bff;
     padding: 0px 10px 11px;
 }
+body{
+    background-color: #777;
+}
+
+.container {
+    /* background: white; */
+    padding-bottom: 16px;
+    padding: 21px;
+    border-radius: 27px;
+}
 
 
+form.Form{
+    background: white;
+    padding: 34px 31px 30px 30px;
+    border-radius: 30px;
+    /* height: 50vh; */
+}
 .file-upload-box {
     border: 2px dashed #ccc;
     padding: 20px;
     border-radius: 8px;
     cursor: pointer;
-  }
-  
-  .upload-area {
+}
+
+.upload-area {
     display: flex;
     flex-direction: column;
     align-items: center;
     font-size: 16px;
     color: #777;
     cursor: pointer;
-  }
-  
-  .upload-area i {
+}
+
+.form-group {
+    padding: 20px 0px 0px;
+}
+
+.input-group-append.tagButton {
+    padding-left: 22px;
+}
+.upload-area i {
     font-size: 36px;
     color: #007bff;
     margin-top: 10px;
-  }
-  
-  .selected-file-info {
+}
+
+.selected-file-info {
     display: flex;
     align-items: center;
     font-size: 16px;
     color: #007bff;
-  }
-  .selected-file-info i {
+}
+
+.selected-file-info i {
     margin-right: 8px;
-  }
-  
-  i.fa.fa-remove {
+}
+
+i.fa.fa-remove {
     padding-right: 8px;
-  }
-  i.fa.fa-upload {
+}
+
+i.fa.fa-upload {
     padding-right: 8px;
-  }
-  i.fa.fa-file-movie-o {
+}
+
+i.fa.fa-file-movie-o {
     padding-right: 8px;
     color: #007bff;
-  }
-  
-  i.fa.fa-trash {
+}
+
+i.fa.fa-trash {
     height: 32px;
     color: red;
-  }
+}
+
+
+.angled-button {
+    position: relative;
+    background-color: #0d6efd;
+    color: white;
+    padding: 6px 9px;
+    margin-left: 3px;
+    display: inline-block;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.angled-button:before {
+    content: "";
+    position: absolute;
+    left: -15px;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top: 23px solid transparent;
+    border-right: 15px solid #0d6efd;
+    border-bottom: 22px solid transparent;
+}
+
+.angled-button:hover {
+    background-color: #0b5ed7;
+    color: white;
+}
+
+.angled-button:hover:before {
+    border-right-color: #0b5ed7;
+}
