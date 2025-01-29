@@ -17,6 +17,11 @@ import { CommonModule } from '@angular/common';
 import { AgGridModule } from 'ag-grid-angular';
 import { SpinnerComponent } from './Spinner/spinner/spinner.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { AuthConfigModule } from './auth/auth-config.module';
+import { LoginComponent } from './File_Upload/login/login.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -24,7 +29,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     VideoMetaDataManagementComponent,
     VideoUploadDialogComponent,
     FileUploadComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +45,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatFormFieldModule,
     MatInputModule,
     AgGridModule,
-    MatTooltipModule
+    MatTooltipModule,
+    AuthConfigModule
 
   ],
   providers: [],

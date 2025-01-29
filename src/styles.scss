@@ -7,34 +7,77 @@
 @import 'ag-grid-community/styles/ag-theme-quartz.css';
 
 @import url('https://fonts.cdnfonts.com/css/futura-rounded');
+
 span.ag-cell-value,
 .ag-group-value {
   overflow: hidden;
   text-overflow: ellipsis;
   font-family: "Playfair Display", serif !important;
-//  font-family: 'Futura Rounded', sans-serif;
+  //  font-family: 'Futura Rounded', sans-serif;
   font-weight: bolder;
   font-size: small;
 }
 
+/* Apply hover effect to the entire row */
+.ag-theme-quartz .ag-row:hover {
+  background-color: #e97c0f !important; /* Set background to blue on hover */
+  color: white !important; /* Set text color to white on hover */
+}
+
+/* Ensure the text inside cells is white only when the row is hovered */
+.ag-theme-quartz .ag-row:hover .ag-cell {
+  color: white !important;
+}
+
+
+.ag-header-cell {
+  background: #de6d1c;
+  color: white;
+}
+
+.ag-header-cell:hover {
+  background: #de6d1c;
+  color: white;
+}
+
 .ag-theme-quartz {
-  --ag-header-foreground-color: rgb(0, 77, 109);
+  --ag-header-foreground-color: #93847a;
   --ag-header-background-color: rgb(236, 246, 250);
   --ag-pagination-panel-background-color: rgb(236, 246, 250); // Replace with your desired blue color
 
 }
 
-
+.ag-floating-filter-input {
+  align-items: center;
+  display: flex;
+  width: 100%;
+  color: #de6d1c;
+}
 
 .ag-paging-panel {
   border-top: 1px solid;
   border-top-color: var(--ag-border-color);
-  color: rgb(0, 77, 109);
+  color: rgb(224, 231, 235);
   height: var(--ag-header-height);
-  background-color: rgb(236, 246, 250);
+  background-color: #de6d1c;
 
 }
 
+
+/* Header cell hover styling */
+.ag-header-cell:hover {
+  background-color: #de6d1c !important;
+  color: white !important;
+}
+
+.ag-paging-panel:hover {
+  border-top: 1px solid;
+  border-top-color: var(--ag-border-color);
+  color: rgb(224, 231, 235);
+  height: var(--ag-header-height);
+  background-color: #de6d1c;
+
+}
 
 
 body {
