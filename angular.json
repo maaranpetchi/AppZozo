@@ -20,6 +20,9 @@
             "outputPath": "dist/file-upload",
             "index": "src/index.html",
             "main": "src/main.ts",
+            "allowedCommonJsDependencies": [
+              "sweetalert2"
+            ],
             "polyfills": [
               "zone.js"
             ],
@@ -37,9 +40,8 @@
             ],
             "scripts": [
               "node_modules/@popperjs/core/dist/umd/popper.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "node_modules/crypto-browserify/index.js",
-              "node_modules/buffer/index.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+          
             ]
           },
           "configurations": {

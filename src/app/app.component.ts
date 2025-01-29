@@ -1,13 +1,13 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { OidcSecurityService } from 'angular-auth-oidc-client';
+// import { OidcSecurityService } from 'angular-auth-oidc-client';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit {
-  private readonly oidcSecurityService = inject(OidcSecurityService);
+  // private readonly oidcSecurityService = inject(OidcSecurityService);
   private readonly router = inject(Router);
   private readonly route = inject(ActivatedRoute);
   isAuthenticated: boolean = false;
@@ -39,9 +39,9 @@ console.log("Oniy");
   // });
 }
 
-  login(): void {
-    this.oidcSecurityService.authorize();
-  }
+  // login(): void {
+  //   this.oidcSecurityService.authorize();
+  // }
 
   logout(): void {
     if (window.sessionStorage) {

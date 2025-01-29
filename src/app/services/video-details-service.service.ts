@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { createSign } from 'crypto-browserify';
+// import { createSign } from 'crypto-browserify';
 @Injectable({
   providedIn: 'root'
 })
@@ -55,24 +55,24 @@ export class VideoDetailsServiceService {
  // Function to interact with pre-signed URL
  sendToPreSignedUrl(preSignedUrl: string) {
    // Generate a signature
-   const sign = createSign('SHA256');
-   sign.update(this.keyValue);
-   sign.end();
+  //  const sign = createSign('SHA256');
+  //  sign.update(this.keyValue);
+  //  sign.end();
 
-   const signature = sign.sign(this.privateKey, 'base64');
+  //  const signature = sign.sign(this.privateKey, 'base64');
 
-   // Define headers
-   const headers = new HttpHeaders({
-     'Content-Type': 'application/json',
-     Authorization: `Bearer ${signature}`,
-   });
+  //  // Define headers
+  //  const headers = new HttpHeaders({
+  //    'Content-Type': 'application/json',
+  //    Authorization: `Bearer ${signature}`,
+  //  });
 
-   // Make HTTP POST request
-   const payload = {
-     keyValue: this.keyValue,
-   };
+  //  // Make HTTP POST request
+  //  const payload = {
+  //    keyValue: this.keyValue,
+  //  };
 
-   return this.http.post(preSignedUrl, payload, { headers });
+  //  return this.http.post(preSignedUrl, payload, { headers });
  }
 
 

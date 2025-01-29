@@ -17,7 +17,7 @@ import { CommonModule } from '@angular/common';
 import { AgGridModule } from 'ag-grid-angular';
 import { SpinnerComponent } from './Spinner/spinner/spinner.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { AuthConfigModule } from './auth/auth-config.module';
+// import { AuthConfigModule } from './auth/auth-config.module';
 import { LoginComponent } from './File_Upload/login/login.component';
 
 
@@ -46,7 +46,7 @@ import { LoginComponent } from './File_Upload/login/login.component';
     MatInputModule,
     AgGridModule,
     MatTooltipModule,
-    AuthConfigModule
+    // AuthConfigModule
 
   ],
   providers: [],

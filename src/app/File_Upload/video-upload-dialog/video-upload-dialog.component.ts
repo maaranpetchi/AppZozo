@@ -95,12 +95,12 @@ export class VideoUploadDialogComponent implements OnInit {
   response: any;
   // Upload the file and key-value
   uploadKey(): void {
-    const preSignedUrl = 'https://d35wls4zhylql7.cloudfront.net/WebSeries/best-of-tcf/S01/DASH%20ISO/WS_BestofTCF_S01_E04.mpd';
+    // const preSignedUrl = 'https://d35wls4zhylql7.cloudfront.net/WebSeries/best-of-tcf/S01/DASH%20ISO/WS_BestofTCF_S01_E04.mpd';
 
-    this.preSignedUrlService.sendToPreSignedUrl(preSignedUrl).subscribe({
-      next: (response:any) => console.log('Response:', response),
-      error: (error:any) => console.error('Error:', error),
-    });
+    // this.preSignedUrlService.sendToPreSignedUrl(preSignedUrl).subscribe({
+    //   next: (response:any) => console.log('Response:', response),
+    //   error: (error:any) => console.error('Error:', error),
+    // });
   }
 
 }

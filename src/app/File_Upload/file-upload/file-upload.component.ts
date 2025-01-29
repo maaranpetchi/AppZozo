@@ -120,7 +120,7 @@ export class FileUploadComponent {
     });
     
     this.http.get<any>('https://9ptytxjeyf.execute-api.ap-south-1.amazonaws.com/Dev/Video/GetAllVideoDetails', { headers } ).subscribe((response) => {
-      this.rowData = response.body.data;
+      this.rowData = response.body.data.items;
       this.spinner.requestEnded();
 
     })
